@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+#tabButtons {
+  display: flex;
+  background-color: #eaeaea;
+  justify-content: space-between;
+}
+
+.tabBtn {
+  font-size: 3vh;
+  background-color: #eaeaea;
+  border-width: 0;
+  width: 50%;
+}
+
+.tabBtn:focus {
+  outline: none;
+}
+
+.tabBtn.active {
+  background-color: blue;
+  color: white;
+}
+
+#notice {
+  position: absolute;
+  right: 0.5vw;
+  bottom: 0.5vw;
+  color: #8d8d8d;
+  font-size: 8pt;
+}

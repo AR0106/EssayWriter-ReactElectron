@@ -1,0 +1,58 @@
+#keywordOutput {
+  padding: 5%;
+  width: 95%;
+  height: 95%;
+  margin-top: 2vh;
+  font-size: 1.1vw;
+}
+
+#keywordContainer {
+  width: 33vw;
+  height: 23vh;
+  text-align: left;
+  position: absolute;
+  right: 5vw;
+  top: 5.5vh;
+  font-size: 2vw;
+}
+
+#summaryOutput {
+  padding: 5%;
+  width: 95%;
+  height: 95%;
+  margin-top: 2vh;
+  font-size: 1.1vw;
+}
+
+#summaryContainer {
+  width: 33vw;
+  height: 40vh;
+  text-align: left;
+  position: absolute;
+  right: 5vw;
+  top: 44.5vh;
+  font-size: 2vw;
+}
+
+#ocrContainer {
+  text-align: left;
+  width: 51vw;
+  height: 77vh;
+  position: absolute;
+  top: 5.5vh;
+  left: 5vw;
+  font-size: 2vw;
+}
+
+#ocrOutput {
+  width: 95%;
+  height: 95%;
+  padding: 5%;
+  margin-top: 2vh;
+}
+
+#ocrInput {
+  vertical-align: middle;
+  margin-left: 1.2vw;
+  margin-bottom: 0.3vh;
+}
