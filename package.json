@@ -1,6 +1,6 @@
 {
   "name": "essay-writer-0.5.52a",
-  "version": "1.0.0",
+  "version": "0.5.6a",
   "private": true,
   "homepage": "./",
   "main": "./public/electron.js",
