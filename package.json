@@ -8,6 +8,8 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "electron-updater": "^4.6.1",
+    "firebase": "^9.6.5",
     "jquery": "^3.6.0",
     "keyword-extractor": "^0.0.20",
     "openai-api": "^1.2.6",

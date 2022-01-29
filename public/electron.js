@@ -2,6 +2,11 @@
 const { app, BrowserWindow, protocol } = require("electron");
 const path = require("path");
 const url = require("url");
+const { autoUpdater } = require("electron-updater");
+
+const server = 'https://dist.unlock.sh/v1/electron';
+const id = '89384d89-b872-4a96-ab73-da1c2467db92';
+const serverUrl = `${server}/${id}/releases`;
 
 // Create the native browser window.
 function createWindow() {
@@ -20,6 +25,16 @@ function createWindow() {
     autoHideMenuBar: true,
   });
 
+  autoUpdater.setFeedURL({
+    url: serverUrl,
+    serverType: 'json',
+    provider: 'generic',
+    useMultipleRangeRequest: false
+  });
+
+  autoUpdater.checkForUpdatesAndNotify();
+  console.log('Checking for updates...');
+
   // In production, set the initial browser path to the local bundle generated
   // by the Create React App build process.
   // In development, set it to localhost to allow live/hot-reloading.
@@ -33,9 +48,9 @@ function createWindow() {
   mainWindow.loadURL(appURL);
 
   // Automatically open Chrome's DevTools in development mode.
-//   if (!app.isPackaged) {
-//     mainWindow.webContents.openDevTools();
-//   }
+   if (app.isPackaged) {
+     mainWindow.devTools = false;
+  }
 }
 
 // Setup a local proxy to adjust the paths of requested files when loading

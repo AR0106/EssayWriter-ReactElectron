@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import TabViewer from './Components/TabViewer';
+import { initFirebase } from './firebaseLoader';
 
 // Changed Tab UI to Let User Know The Current Tab
 function switchTab(currentElement) {
@@ -21,6 +22,8 @@ function switchTab(currentElement) {
 }
 
 function App() {
+  initFirebase();
+
   const [curTab, setCurTab] = useState();
 
   return(

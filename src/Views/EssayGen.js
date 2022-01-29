@@ -1,5 +1,6 @@
 import './Styles/EssayGen.css';
 import React from 'react';
+import { shareResults } from '../DataBuilder';
 
 export default class GenView extends React.Component {
     render() {
@@ -56,6 +57,8 @@ export default class GenView extends React.Component {
             const parsed = JSON.parse(JSON.stringify(output.data));
 
             document.getElementById("outBox").innerHTML = parsed.choices[0].text;
+
+            shareResults(document.getElementById("outBox").innerHTML);
 
             }}>Generate</button>
             <div className='repContainer'>
