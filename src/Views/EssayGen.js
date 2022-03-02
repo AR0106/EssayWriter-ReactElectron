@@ -2,9 +2,12 @@ import './Styles/EssayGen.css';
 import React from 'react';
 import { shareResults } from '../DataBuilder';
 
+export var pOutput;
+
+export var cleanOutput;
+
 export default class GenView extends React.Component {
     render() {
-        var output;
         return (
             <div className="GenView">
             <div className="outputBox" id='outBox'>
@@ -40,7 +43,7 @@ export default class GenView extends React.Component {
                     break;
                 }
 
-                output = await openai.complete({
+                pOutput = await openai.complete({
                 engine: 'davinci-instruct-beta-v3',
                 prompt: "Generate a " + type + " paragraph about " + document.getElementById("topicInput").value + " that includes " + document.getElementById("structInput").value,
                 maxTokens: 1900,
@@ -54,9 +57,11 @@ export default class GenView extends React.Component {
                 stop: null
             });
 
-            const parsed = JSON.parse(JSON.stringify(output.data));
+            const parsed = JSON.parse(JSON.stringify(pOutput.data));
 
-            document.getElementById("outBox").innerHTML = parsed.choices[0].text;
+            cleanOutput = parsed.choices[0].text;
+
+            document.getElementById("outBox").innerHTML = cleanOutput;
 
             shareResults(document.getElementById("outBox").innerHTML);
 

@@ -11,7 +11,7 @@ const serverUrl = `${server}/${id}/releases`;
 // Create the native browser window.
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    title: 'Contrabanned Essay Writer',
+    title: 'Essay Writer',
     width: 1280,
     height: 720,
     minWidth: 1024,
@@ -47,7 +47,7 @@ function createWindow() {
     : "http://localhost:3000";
   mainWindow.loadURL(appURL);
 
-  // Automatically open Chrome's DevTools in development mode.
+  // Automatically Disable Chrome's DevTools in Production
    if (app.isPackaged) {
      mainWindow.devTools = false;
   }

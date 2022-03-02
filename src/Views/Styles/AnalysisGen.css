@@ -11,8 +11,8 @@
   height: 23vh;
   text-align: left;
   position: absolute;
-  right: 5vw;
-  top: 5.5vh;
+  right: 4vw;
+  top: 3.5vh;
   font-size: 2vw;
 }
 
@@ -29,8 +29,8 @@
   height: 40vh;
   text-align: left;
   position: absolute;
-  right: 5vw;
-  top: 44.5vh;
+  right: 4vw;
+  top: 42.5vh;
   font-size: 2vw;
 }
 
@@ -39,8 +39,8 @@
   width: 51vw;
   height: 77vh;
   position: absolute;
-  top: 5.5vh;
-  left: 5vw;
+  top: 3.5vh;
+  left: 6vw;
   font-size: 2vw;
 }
 
@@ -53,6 +53,6 @@
 
 #ocrInput {
   vertical-align: middle;
-  margin-left: 1.2vw;
+  margin-left: 2.2vw;
   margin-bottom: 0.3vh;
 }

@@ -1,0 +1,53 @@
+#keywordOutput {
+    padding: 5%;
+    width: 95%;
+    height: 95%;
+    margin-top: 2vh;
+    font-size: 1.1vw;
+  }
+  
+  #keywordContainer {
+    width: 33vw;
+    height: 23vh;
+    text-align: left;
+    position: absolute;
+    right: 4vw;
+    top: 3.5vh;
+    font-size: 2vw;
+  }
+  
+  #summaryOutput {
+    padding: 5%;
+    width: 95%;
+    height: 95%;
+    margin-top: 2vh;
+    font-size: 1.1vw;
+  }
+  
+  #summaryContainer {
+    width: 33vw;
+    height: 40vh;
+    text-align: left;
+    position: absolute;
+    right: 4vw;
+    top: 42.5vh;
+    font-size: 2vw;
+  }
+  
+  #reviewContainer {
+    text-align: left;
+    width: 51vw;
+    height: 77vh;
+    position: absolute;
+    top: 3.5vh;
+    left: 6vw;
+    font-size: 2vw;
+  }
+  
+  #reviewOutput {
+    width: 95%;
+    height: 95%;
+    padding: 5%;
+    margin-top: 2vh;
+    font-size: 1vw;
+  }
