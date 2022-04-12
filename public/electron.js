@@ -1,12 +1,14 @@
 // Module to control the application lifecycle and the native browser window.
-const { app, BrowserWindow, protocol } = require("electron");
+const { app, BrowserWindow, protocol, dialog } = require("electron");
 const path = require("path");
 const url = require("url");
 const { autoUpdater } = require("electron-updater");
+const { title, electron } = require("process");
+autoUpdater.autoDownload = true;
 
-const server = 'https://dist.unlock.sh/v1/electron';
-const id = '89384d89-b872-4a96-ab73-da1c2467db92';
-const serverUrl = `${server}/${id}/releases`;
+autoUpdater.on('update-downloaded', (info) => {
+  dialog.showMessageBox(null, {title: "Update Ready", message: "There are Updates Awaiting Installation", buttons: ["Ok"] }, (buttonIndex) => {autoUpdater.quitAndInstall()});
+});
 
 // Create the native browser window.
 function createWindow() {
@@ -24,16 +26,6 @@ function createWindow() {
     },
     autoHideMenuBar: true,
   });
-
-  autoUpdater.setFeedURL({
-    url: serverUrl,
-    serverType: 'json',
-    provider: 'generic',
-    useMultipleRangeRequest: false
-  });
-
-  autoUpdater.checkForUpdatesAndNotify();
-  console.log('Checking for updates...');
 
   // In production, set the initial browser path to the local bundle generated
   // by the Create React App build process.
@@ -74,7 +66,9 @@ function setupLocalFilesNormalizerProxy() {
 app.whenReady().then(() => {
   createWindow();
   setupLocalFilesNormalizerProxy();
-
+  
+  autoUpdater.checkForUpdatesAndNotify();
+  
   app.on("activate", function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
@@ -82,6 +76,11 @@ app.whenReady().then(() => {
       createWindow();
     }
   });
+
+});
+
+autoUpdater.on('update-available', () => {
+  autoUpdater.downloadUpdate();
 });
 
 // Quit when all windows are closed, except on macOS.

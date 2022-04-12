@@ -1,17 +1,19 @@
 {
-  "name": "essay-writer-0.5.52a",
-  "version": "0.6.0",
+  "name": "essay-writer",
+  "version": "0.6.1",
   "versionType": "Beta",
   "displayName": "Essay Writer",
-  "private": true,
+  "private": false,
   "homepage": "./",
   "main": "./public/electron.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "dotenv": "^16.0.0",
     "electron-updater": "^4.6.1",
     "firebase": "^9.6.5",
+    "firebaseui": "^6.0.1",
     "jquery": "^3.6.0",
     "keyword-extractor": "^0.0.20",
     "openai-api": "^1.2.6",
@@ -31,7 +33,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron:start": "concurrently -k \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electronmon .\"",
-    "package": "electron-builder build --win -c.extraMetadata.main=build/electron/main.js --publish never"
+    "package": "electron-builder build --mac -c.extraMetadata.main=build/electron/main.js --publish",
+    "appPub": "electron-builder --publish always"
   },
   "eslintConfig": {
     "extends": [
@@ -53,7 +56,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
     "electron": "^16.0.6",
-    "electron-builder": "^22.14.5",
+    "electron-builder": "^22.14.13",
     "electronmon": "^2.0.2",
     "prettier": "^2.5.1",
     "style-loader": "^3.3.1",
@@ -62,6 +65,13 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.7.3",
     "workbox-webpack-plugin": "^6.4.2"
+  },
+  "build": {
+    "publish": {
+      "provider": "s3",
+      "bucket": "essaywriter-updateservice",
+      "region": "us-east-2"
+    }
   },
   "description": "Essay Writer"
 }
