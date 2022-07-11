@@ -10,10 +10,13 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "crypto-js": "^4.1.1",
     "dotenv": "^16.0.0",
+    "electron-json-storage": "^4.5.0",
     "electron-updater": "^4.6.1",
     "firebase": "^9.6.5",
     "firebaseui": "^6.0.1",
+    "fs": "^0.0.1-security",
     "jquery": "^3.6.0",
     "keyword-extractor": "^0.0.20",
     "openai-api": "^1.2.6",
@@ -34,7 +37,9 @@
     "eject": "react-scripts eject",
     "electron:start": "concurrently -k \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electronmon .\"",
     "package": "electron-builder build --mac -c.extraMetadata.main=build/electron/main.js --publish",
-    "appPub": "electron-builder --publish always"
+    "appPub": "electron-builder --publish always",
+    "encTestJS": "node public/rfCrypto.js",
+    "encTestPY": "python server/rfCrypto.py"
   },
   "eslintConfig": {
     "extends": [

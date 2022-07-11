@@ -1,9 +1,13 @@
 // Module to control the application lifecycle and the native browser window.
-const { app, BrowserWindow, protocol, dialog } = require("electron");
+const { app, BrowserWindow, protocol, dialog, ipcMain } = require("electron");
 const path = require("path");
 const url = require("url");
 const { autoUpdater } = require("electron-updater");
 const { title, electron } = require("process");
+const { data } = require("jquery");
+const fs = require('fs');
+const { async } = require("@firebase/util");
+
 autoUpdater.autoDownload = true;
 
 autoUpdater.on('update-downloaded', (info) => {
@@ -23,6 +27,8 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       "webSecurity": false,
+      contextIsolation: false,
+      nodeIntegration: true
     },
     autoHideMenuBar: true,
   });
@@ -108,3 +114,11 @@ app.on("web-contents-created", (event, contents) => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+ipcMain.handle('genHistory-save', async (event, fileName, data) => {
+  fs.writeFile(fileName, data);
+});
+
+ipcMain.handle('genHistory-load', async (event, fileName) => {
+  return fs.readFile(fileName);
+});

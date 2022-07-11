@@ -39,9 +39,9 @@ let btnImagesIndex = {
 }
 
 let activeElements = [
-  false,
-  false,
   true,
+  false,
+  false,
   false
 ];
 

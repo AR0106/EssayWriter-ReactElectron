@@ -9,7 +9,7 @@ const stylesHandler = "style-loader";
 
 const config = {
   entry: "./public/electron.js",
-  target: 'electron',
+  target: 'electron-renderer',
   output: {
     path: path.resolve(__dirname, "dist"),
   },
@@ -38,7 +38,7 @@ const config = {
   },
   resolve: {
     fallback: {
-      "fs": false,
+      "fs": true,
     }
   },
 };
@@ -53,3 +53,14 @@ module.exports = () => {
   }
   return config;
 };
+
+module.exports = [
+  config,
+  {
+      ...config,
+      target: 'web', //target that needs special rules, then all your other special config rules in this object
+      node: {
+          fs: 'empty'
+      }
+  }
+]

@@ -18,7 +18,7 @@ export default class TabViewer extends React.Component {
                 return (<RevView />);
         
             default:
-                return (<RevView/>);
+                return (<GenView/>);
         }
     }
 }

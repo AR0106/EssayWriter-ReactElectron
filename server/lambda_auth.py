@@ -32,6 +32,7 @@ def decryptAes(cipherText, keyPart):
 def encryptAes(plainText, keyPart):
     key = SHA256.new(genSalt(keyPart).encode()).hexdigest()[:AES.block_size].encode()
     iv = Random.new().read(AES.block_size)
+    print(AES.block_size)
     cipher = AES.new(key, AES.MODE_CFB, iv)
     ciphertext = iv + cipher.encrypt(plainText.encode())
     return ciphertext
